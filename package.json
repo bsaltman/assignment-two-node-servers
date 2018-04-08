@@ -13,8 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "MONGO_URL=mongodb://test:test@ds235239.mlab.com:35239/heroku_qbtk2kvp');"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "ISC"
 }
