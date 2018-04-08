@@ -39,19 +39,10 @@ app.get('/', function(req, res) {
 //a. login request username/passowrd given as post variables
 app.post('/users/login', function(req, resp) {
  // use mongoose to retrieve all books from Mongo
- Users.find({
-   email: req.body.email,
-   password: req.body.password
-  },
-  function(err, data) {
-   if (err) {
-    resp.json({ message: 'Unable to connect to stocks' });
-   }
-   else {
-    // return JSON retrieved by Mongo as response
-    resp.json(data);
-   }
-  });
+ var email = req.body.email;
+ var password = req.body.password;
+
+ resp.send(email + " " + password);
 });
 
 app.get('/users/', function(req, resp) {
