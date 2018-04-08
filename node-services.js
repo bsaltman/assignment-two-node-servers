@@ -3,7 +3,7 @@ var parser = require('body-parser');
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://test:test@ds235239.mlab.com:35239/heroku_qbtk2kvp');
+mongoose.connect(process.env.MONGODB_URI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
