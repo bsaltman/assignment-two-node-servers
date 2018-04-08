@@ -79,7 +79,7 @@ app.post('/users/login', function(req, resp) {
             }
             else {
                 // return JSON retrieved by Mongo as response
-                resp.json(data);
+                resp.json(req.body.password + " " + req.body.email);
             }
         });
 });
