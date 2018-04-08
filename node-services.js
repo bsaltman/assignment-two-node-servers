@@ -66,7 +66,7 @@ app.listen(process.env.PORT, function() {
     console.log("Server running at port= " + process.env.PORT);
 });
 
-//a. login request username/passowrd given as post variables
+/*a. login request username/passowrd given as post variables
 app.post('/users/login', function(req, resp) {
     // use mongoose to retrieve all books from Mongo
     Users.find({
@@ -79,9 +79,18 @@ app.post('/users/login', function(req, resp) {
             }
             else {
                 // return JSON retrieved by Mongo as response
-                resp.json(req.body);
+                resp.json();
             }
         });
+});*/
+
+//a. login request username/passowrd given as post variables
+app.post('/users/login', function(req, resp) {
+    // use mongoose to retrieve all books from Mongo
+    var email = req.body.email;
+    var password = req.body.password;
+
+    resp.send(email + " " + password);
 });
 
 // b. Given a stock symbol returns the company information for it
