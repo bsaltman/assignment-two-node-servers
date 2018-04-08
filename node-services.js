@@ -62,9 +62,8 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
 
-let port = 8080;
-app.listen(port, function() {
-    console.log("Server running at port= " + port);
+app.listen(process.env.PORT, function() {
+    console.log("Server running at port= " + process.env.PORT);
 });
 
 //a. login request username/passowrd given as post variables
