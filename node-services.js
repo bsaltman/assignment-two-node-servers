@@ -360,3 +360,16 @@ app.get('/prices/allLastPrices/', function(req, resp) {
         }
     });
 });
+
+app.get('/users/', function(req, resp) {
+    // use mongoose to retrieve all books from Mongo
+    Users.find({}, function(err, data) {
+        if (err) {
+            resp.json({ message: 'Unable to connect to stocks' });
+        }
+        else {
+            // return JSON retrieved by Mongo as response
+            resp.json(data);
+        }
+    });
+});
