@@ -336,3 +336,27 @@ app.get('/portfolio/breakdowntwo/:usernumber', function(req, resp) {
         }
     });
 });
+
+
+app.get('/prices/allLastPrices/', function(req, resp) {
+    // use mongoose to retrieve all books from Mongo
+    Prices.aggregate([{
+        $project: {
+            close: 1,
+            name: 1,
+            date: { $substr: ["$date", 0, 10] }
+        }
+    }, {
+        $match: {
+            date: "2017-12-29"
+        }
+    }], function(err, data) {
+        if (err) {
+            resp.json({ message: 'Unable to connect to stocks' });
+        }
+        else {
+            // return JSON retrieved by Mongo as response
+            resp.json(data);
+        }
+    });
+});
