@@ -361,9 +361,9 @@ app.get('/prices/allLastPrices/', function(req, resp) {
     });
 });
 
-app.get('/users/', function(req, resp) {
+app.get('/users/:email', function(req, resp) {
     // use mongoose to retrieve all books from Mongo
-    Users.find({}, function(err, data) {
+    Users.find({ email: req.params.email }, function(err, data) {
         if (err) {
             resp.json({ message: 'Unable to connect to stocks' });
         }
