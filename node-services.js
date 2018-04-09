@@ -61,6 +61,12 @@ var app = express();
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 app.listen(process.env.PORT, function() {
     console.log("Server running at port= " + process.env.PORT);
