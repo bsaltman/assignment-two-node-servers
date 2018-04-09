@@ -373,3 +373,16 @@ app.get('/users/:email', function(req, resp) {
         }
     });
 });
+
+app.get('/users/id/:userId', function(req, resp) {
+    // use mongoose to retrieve all books from Mongo
+    Users.find({ id: req.params.userId }, function(err, data) {
+        if (err) {
+            resp.json({ message: 'Unable to connect to stocks' });
+        }
+        else {
+            // return JSON retrieved by Mongo as response
+            resp.json(data);
+        }
+    });
+});
