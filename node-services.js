@@ -102,7 +102,7 @@ app.get('/companies/', function(req, resp) {
         }
         else {
             // return JSON retrieved by Mongo as response
-            resp.json("test");
+            resp.json(data);
         }
     });
 });
