@@ -139,7 +139,8 @@ app.get('/prices/month-prices/:symb/:month', function(req, resp) {
             close: 1,
             volume: 1,
             name: 1,
-            month: { $substr: ["$date", 5, 2] }
+            month: { $substr: ["$date", 5, 2] },
+            day: { $substr: ["$date", 8, 2] }
         }
     }, {
         $match: {
