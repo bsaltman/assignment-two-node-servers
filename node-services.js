@@ -59,7 +59,7 @@ var companies = mongoose.model('companies', companiesSchema);
 var app = express();
 // tell node to use json and HTTP header features in body-parser
 app.use(parser.json());
-app.use(parser.urlencoded({ extended: false }));
+app.use(parser.urlencoded({ extended: true }));
 
 
 app.listen(process.env.PORT, function() {
