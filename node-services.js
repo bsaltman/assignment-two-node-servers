@@ -93,6 +93,20 @@ app.post('/users/login', function(req, resp) {
     resp.send(email + " " + password);
 });
 
+//return all companies
+app.get('/companies/', function(req, resp) {
+    // use mongoose to retrieve all books from Mongo
+    companies.find({}, { symbol: 1, name: 1 }, function(err, data) {
+        if (err) {
+            resp.json({ message: 'Unable to connect to companies' });
+        }
+        else {
+            // return JSON retrieved by Mongo as response
+            resp.json("test");
+        }
+    });
+});
+
 // b. Given a stock symbol returns the company information for it
 app.get('/companies/:symb', function(req, resp) {
     // use mongoose to retrieve all books from Mongo
